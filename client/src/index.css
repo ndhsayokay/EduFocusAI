@@ -1,0 +1,35 @@
+/* client/src/index.css */
+
+/* :root định nghĩa các biến toàn cục */
+:root {
+  --primary-color: #007bff;      /* Xanh dương chính */
+  --primary-hover-color: #0056b3;
+  --secondary-color: #6c757d;    /* Xám phụ */
+  --success-color: #28a745;      /* Xanh lá cây */
+  --danger-color: #dc3545;       /* Đỏ */
+  --light-color: #f8f9fa;        /* Màu nền sáng */
+  --dark-color: #343a40;         /* Màu chữ/nền tối */
+  --background-color: #ffffff;   /* Màu nền chính */
+  --border-color: #dee2e6;       /* Màu viền */
+  --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --border-radius: 8px;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--light-color); /* Nền xám nhẹ cho toàn trang */
+  color: var(--dark-color);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+
+h1, h2, h3, h4 {
+  color: var(--dark-color);
+}

@@ -1,0 +1,330 @@
+/* client/src/App.css */
+
+/* === General Styles: Buttons, Forms, Cards === */
+.btn {
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1px solid transparent;
+  border-radius: var(--border-radius);
+  transition: all 0.2s ease-in-out;
+  text-decoration: none;
+  text-align: center;
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  color: white;
+}
+.btn-primary:hover {
+  background-color: var(--primary-hover-color);
+}
+
+.btn-danger {
+  background-color: var(--danger-color);
+  color: white;
+}
+
+.btn-success {
+  background-color: var(--success-color);
+  color: white;
+}
+
+.form-control {
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  margin-bottom: 1rem;
+}
+
+.card {
+  background: var(--background-color);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: var(--box-shadow);
+}
+
+.list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--border-color);
+}
+.list-item:last-child {
+  border-bottom: none;
+}
+
+/* === Navbar === */
+.navbar {
+  background: var(--dark-color);
+  color: #fff;
+  padding: 0.75rem 0;
+  box-shadow: var(--box-shadow);
+}
+.navbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.navbar-brand {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.nav-link {
+  color: white;
+  text-decoration: none;
+  margin: 0 1rem;
+  font-size: 1rem;
+  transition: color 0.2s ease-in-out;
+}
+.nav-link:hover {
+  color: var(--primary-color);
+}
+
+/* === User Profile === */
+.user-profile {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 2rem;
+  align-items: center;
+}
+.user-profile-avatar img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.progress-bar {
+  width: 100%;
+  background-color: #e9ecef;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  height: 24px;
+}
+.progress-bar-inner {
+  background-color: var(--primary-color);
+  height: 100%;
+  text-align: center;
+  color: white;
+  line-height: 24px;
+  transition: width 0.5s ease-in-out;
+}
+
+/* === Responsive Design (đã làm ở bước trước) === */
+.report-summary-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+@media (min-width: 768px) {
+  .report-summary-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 1024px) {
+  .report-summary-grid { grid-template-columns: repeat(4, 1fr); }
+}
+/* client/src/App.css */
+
+/* === Dashboard Layout === */
+.dashboard-grid {
+  display: grid;
+  gap: 1.5rem;
+  /* Mặc định 1 cột cho mobile */
+  grid-template-columns: 1fr; 
+}
+
+/* 2 cột cho tablet */
+@media (min-width: 768px) {
+  .dashboard-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* 4 cột cho desktop, với các widget có thể chiếm nhiều cột/hàng */
+@media (min-width: 1200px) {
+  .dashboard-grid {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto; /* Chiều cao tự động */
+    /* Định nghĩa các khu vực cho layout */
+    grid-template-areas:
+      "welcome welcome progress progress"
+      "myday myday deadlines reports"
+      "myday myday friends friends";
+  }
+  
+  /* Gán các widget vào khu vực tương ứng */
+  .widget-welcome { grid-area: welcome; }
+  .widget-progress { grid-area: progress; }
+  .widget-myday { grid-area: myday; }
+  .widget-deadlines { grid-area: deadlines; }
+  .widget-reports { grid-area: reports; }
+  .widget-friends { grid-area: friends; }
+}
+
+/* === Widget Style === */
+.widget {
+  background: var(--background-color);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+  box-shadow: var(--box-shadow);
+  display: flex;
+  flex-direction: column;
+}
+
+.widget-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.widget-header h3 {
+  margin: 0;
+}
+
+.widget-header a {
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+/* client/src/App.css */
+
+/* === Main Layout with Sidebar === */
+.app-layout {
+  display: flex;
+  height: 100vh; /* Chiều cao bằng 100% màn hình */
+  overflow: hidden; /* Ngăn cuộn ở cấp độ cao nhất */
+}
+
+/* --- Sidebar Style --- */
+.sidebar {
+  width: 250px; /* Chiều rộng cố định cho sidebar */
+  background: var(--dark-color);
+  color: #fff;
+  display: flex;
+  flex-direction: column; /* Xếp các mục theo chiều dọc */
+  padding: 1.5rem 0;
+  flex-shrink: 0; /* Ngăn sidebar bị co lại */
+}
+
+.sidebar-user {
+  padding: 0 1.5rem 1.5rem 1.5rem;
+  text-align: center;
+  border-bottom: 1px solid #4a4a4a;
+}
+.sidebar-user-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-bottom: 0.5rem;
+  background-color: var(--primary-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 0 auto 0.5rem auto;
+}
+.sidebar-user p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+.sidebar-nav {
+  flex-grow: 1; /* Đẩy phần logout xuống dưới */
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0;
+}
+.sidebar-nav a {
+  display: block;
+  color: #ccc;
+  text-decoration: none;
+  padding: 0.9rem 1.5rem;
+  transition: background-color 0.2s, color 0.2s;
+}
+.sidebar-nav a:hover {
+  background-color: #4a4a4a;
+  color: #fff;
+}
+/* Style cho link đang active */
+.sidebar-nav a.active {
+  background-color: var(--primary-color);
+  color: white;
+  font-weight: bold;
+}
+
+.sidebar-logout {
+  padding: 0 1.5rem;
+}
+
+/* --- Main Content Style --- */
+.main-content {
+  flex-grow: 1; /* Chiếm hết phần còn lại */
+  overflow-y: auto; /* Cho phép cuộn chỉ ở khu vực này */
+  background-color: var(--light-color);
+}
+
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: var(--light-color);
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 400px; /* Giới hạn chiều rộng của form */
+  padding: 2.5rem;
+  background: var(--background-color);
+  box-shadow: var(--box-shadow);
+  border-radius: var(--border-radius);
+  text-align: center;
+}
+
+.auth-card h1 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-size: 2rem;
+}
+
+.auth-card p {
+  margin-bottom: 2rem;
+  color: var(--secondary-color);
+}
+
+.auth-form .form-group {
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+.auth-form .form-control {
+  /* Style cho input đã có sẵn, không cần thêm */
+}
+
+.auth-form .btn {
+  width: 100%; /* Nút bấm chiếm toàn bộ chiều rộng */
+  padding: 0.8rem;
+}
+
+.auth-switch-link {
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+}
+
+.auth-switch-link a {
+  color: var(--primary-color);
+  font-weight: 600;
+  text-decoration: none;
+}
+.auth-switch-link a:hover {
+  text-decoration: underline;
+}

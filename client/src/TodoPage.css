@@ -1,0 +1,126 @@
+/* client/src/TodoPage.css */
+.todo-page-layout {
+  display: grid;
+  grid-template-columns: 240px 1fr; /* Sidebar và Main Content */
+  height: calc(100vh - 120px); /* Chiều cao màn hình trừ đi Navbar và padding */
+  gap: 1.5rem;
+}
+
+.todo-sidebar {
+  background-color: #fff;
+  border-radius: var(--border-radius);
+  padding: 1rem;
+  box-shadow: var(--box-shadow);
+}
+
+.todo-sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.todo-sidebar li {
+  padding: 0.75rem 1rem;
+  margin-bottom: 0.5rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.todo-sidebar li:hover {
+  background-color: #f0f0f0;
+}
+
+.todo-sidebar li.active {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.task-list-container, .task-detail-container {
+  background-color: #fff;
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+  box-shadow: var(--box-shadow);
+  overflow-y: auto;
+}
+
+/* --- TaskItem.js --- */
+.task-item {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem;
+  border-bottom: 1px solid var(--border-color);
+  cursor: pointer;
+}
+.task-item:hover {
+  background-color: #f8f9fa;
+}
+.task-item.selected {
+    background-color: #e7f3ff;
+}
+.task-item-checkbox {
+  margin-right: 1rem;
+  width: 20px;
+  height: 20px;
+}
+.task-item-info {
+  flex-grow: 1;
+}
+.task-item-title.completed {
+    text-decoration: line-through;
+    color: var(--secondary-color);
+}
+.task-item-meta {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.8rem;
+  color: var(--secondary-color);
+}
+
+/* --- TaskDetail.js --- */
+.task-detail-form .form-group {
+    margin-bottom: 1rem;
+}
+.task-detail-form textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+.subtask-list {
+    margin-top: 1rem;
+}
+.subtask-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.task-item-content {
+    flex-grow: 1;
+}
+
+.task-item-title-row {
+    display: flex;
+    align-items: center;
+}
+
+.priority-indicator {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 0.75rem;
+}
+
+.priority-high { background-color: var(--danger-color); }
+.priority-medium { background-color: #ffc107; } /* Màu vàng */
+.priority-low { background-color: var(--success-color); }
+
+
+.task-item-description {
+    font-size: 0.9rem;
+    color: var(--secondary-color);
+    margin: 0.25rem 0 0 0;
+    /* Giới hạn chỉ hiển thị 1 dòng */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
