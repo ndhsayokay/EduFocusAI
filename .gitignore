@@ -1,0 +1,10 @@
+ ai_service/venv/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# IDE / Editor
+.vscode/
+.idea/
